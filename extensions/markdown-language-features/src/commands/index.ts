@@ -15,6 +15,7 @@ import { ReloadPlugins } from './reloadPlugins';
 import { RenderDocument } from './renderDocument';
 import { ShowLockedPreviewToSideCommand, ShowPreviewCommand, ShowPreviewToSideCommand } from './showPreview';
 import { CopyImageCommand } from './copyImage';
+import { OpenImageInNewEditorCommand } from './openImageInNewEditor';
 import { ShowPreviewSecuritySelectorCommand } from './showPreviewSecuritySelector';
 import { ShowSourceCommand } from './showSource';
 import { ToggleLockCommand } from './toggleLock';
@@ -29,6 +30,7 @@ export function registerMarkdownCommands(
 	const previewSecuritySelector = new PreviewSecuritySelector(cspArbiter, previewManager);
 
 	commandManager.register(new CopyImageCommand(previewManager));
+	commandManager.register(new OpenImageInNewEditorCommand(previewManager));
 	commandManager.register(new ShowPreviewCommand(previewManager, telemetryReporter));
 	commandManager.register(new ShowPreviewToSideCommand(previewManager, telemetryReporter));
 	commandManager.register(new ShowLockedPreviewToSideCommand(previewManager, telemetryReporter));

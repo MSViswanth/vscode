@@ -71,10 +71,17 @@ export namespace ToWebviewMessage {
 		readonly id: string;
 	}
 
+	export interface OpenImageInNewEditor extends BaseMessage {
+		readonly type: 'openImageInNewEditor';
+		readonly source: string;
+		readonly id: string;
+	}
+
 	export type Type =
 		| OnDidChangeTextEditorSelection
 		| UpdateView
 		| UpdateContent
 		| CopyImageContent
+		| OpenImageInNewEditor
 		;
 }
