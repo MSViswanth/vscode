@@ -168,14 +168,8 @@ async function copyImage(image: HTMLImageElement, retries = 5) {
 	}
 }
 
-async function openImageInNewEditor(imageSrc: string) {
-	try {
-		return;
-	}
-	catch (e) {
-		console.error(e);
-	}
-
+async function openImageInNewEditor(img: HTMLImageElement) {
+	console.log(img.src);
 }
 
 window.addEventListener('message', async event => {
@@ -191,7 +185,7 @@ window.addEventListener('message', async event => {
 		case 'openImageInNewEditor': {
 			const img = document.getElementById(data.id);
 			if (img instanceof HTMLImageElement) {
-				openImageInNewEditor(img.src);
+				openImageInNewEditor(img);
 			}
 			return;
 		}
